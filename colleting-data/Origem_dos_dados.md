@@ -14,3 +14,9 @@
 ## Tipo de estabelecimento
 
 - [Consulta Tipo Estabelecimento](https://cnes2.datasus.gov.br/Mod_Ind_Unidade.asp)
+
+## Fronteiras das Cidades
+
+- Usando a API [Nominatim](https://nominatim.openstreetmap.org)
+- Criei o arquivo [Fronteiras](Fronteiras.ipynb)
+- Simplifiquei as fronteiras usando o [mapshaper](https://mapshaper.org/)
