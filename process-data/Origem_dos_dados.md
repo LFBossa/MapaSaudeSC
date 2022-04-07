@@ -20,3 +20,13 @@
 - Usando a API [Nominatim](https://nominatim.openstreetmap.org)
 - Criei o arquivo [Fronteiras](Fronteiras.ipynb)
 - Simplifiquei as fronteiras usando o [mapshaper](https://mapshaper.org/)
+
+## População 
+
+- Usei o sistema [SIDRA](https://sidra.ibge.gov.br/tabela/6579) do IBGE 
+
+# Como processei os dados
+
+## Estabelecimentos
+
+- No notebook [Metadados](Metadados.ipynb)
