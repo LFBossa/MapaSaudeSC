@@ -5,10 +5,11 @@ import json
 import folium
 from folium.plugins import FastMarkerCluster
 from streamlit_folium import folium_static
+import requests
 
 # descomentar para versão online
-# BASE_URL = "https://raw.githubusercontent.com/LFBossa/MapaSaudeSC/main/"
-BASE_URL = "./"
+BASE_URL = "https://raw.githubusercontent.com/LFBossa/MapaSaudeSC/main/"
+#BASE_URL = "./"
 
 
 @st.cache
@@ -21,8 +22,13 @@ def get_estabelecimentos():
 
 @st.cache(allow_output_mutation=True)
 def get_geojson():
-    with open(BASE_URL + "data/geoloc/boundaries-simplified.json") as fp:
-        geojson = json.load(fp)
+    PATH = BASE_URL + "data/geoloc/boundaries-simplified.json"
+    try:
+        with open(PATH) as fp:
+            geojson = json.load(fp)
+    except:
+        contents = requests.get(PATH).text
+        geojson = json.loads(contents)
     return geojson
 
 
@@ -133,4 +139,4 @@ folium.GeoJson(GEOJSON,
 
 folium.LayerControl().add_to(m)
 
-folium_static(m,  width=900, height=600)
+folium_static(m,  width=800, height=500)
