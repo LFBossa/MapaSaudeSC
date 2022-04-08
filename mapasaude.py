@@ -11,6 +11,10 @@ import requests
 BASE_URL = "https://raw.githubusercontent.com/LFBossa/MapaSaudeSC/main/"
 #BASE_URL = "./"
 
+st.set_page_config(#layout="wide",
+    page_title="Mapa da Saúde SC",
+    page_icon="🧊")
+
 
 @st.cache
 def get_estabelecimentos():
@@ -56,6 +60,9 @@ DOENCAS = get_doencas()
 POPULACAO = get_populacao()
 ESTABELECIMENTOS = get_estabelecimentos()
 
+st.sidebar.write("""# Filtros
+## Estabelecimentos de saúde
+""")
 
 tipo_unidade = ESTABELECIMENTOS.tipo_unidade.unique()
 tipo_unidade_selectbox = st.sidebar.multiselect(
@@ -80,7 +87,7 @@ def ping_points():
         return marker;
     };
     """
-    m = folium.Map([-27.048549, -50.4133549], zoom_start=7.4,tiles="Stamen Toner")
+    m = folium.Map([-27.2958165,-50.5933218], zoom_start=7.4,tiles="Stamen Toner")
     for x in tipo_unidade_selectbox:
         subconjunto = ESTABELECIMENTOS.query(f"tipo_unidade == '{x}'")
         dados = subconjunto.apply(retrieve_data, axis=1)
@@ -89,6 +96,8 @@ def ping_points():
     return m
 
 
+st.sidebar.write("""## Doença/ano
+""")
 doenca_selecionada = st.sidebar.selectbox(
     "Selecione a doença", ["Hipertensão", "Diabetes", "Obesidade", "Tabagismo"])
 ano_selecionado = st.sidebar.slider(
@@ -120,7 +129,8 @@ mapinha = folium.Choropleth(
     data=filtrados_doenca,
     columns=["IBGE", "incidência"],
     key_on="feature.properties.id",
-    fill_color="PRGn",
+    bins=7,
+    fill_color="OrRd",
     fill_opacity=0.5,
     line_opacity=0.1,
     highlight=True,
@@ -128,7 +138,10 @@ mapinha = folium.Choropleth(
 )
 
 
+"""# Mapa da Saúde SC
 
+
+"""
 mapinha.add_to(m)
 
 folium.GeoJson(GEOJSON,
@@ -140,3 +153,14 @@ folium.GeoJson(GEOJSON,
 folium.LayerControl().add_to(m)
 
 folium_static(m,  width=800, height=500)
+"""
+O mapa acima contém dados obtivos pelo Sistema de informação em Saúde para a Atenção Básica 
+[SISAB](https://sisab.saude.gov.br/paginas/acessoRestrito/relatorio/federal/saude/RelSauProducao.xhtml), sobre atendimentos individuais para 
+hipertensão arterial, hiabetes, obesidade e tabagismo. 
+
+Dados de população obtidos do sistema [SIDRA](https://sidra.ibge.gov.br/tabela/6579) do IBGE.
+
+Geocodificação de endereços e fronteiras de cidades foi feita usando a API [CEP aberto](https://www.cepaberto.com/) e [Nominatim](https://nominatim.org/).
+"""
+
+"""> Criado por  [Bossa](https://github.com/LFBossa) para o *Projeto Qualificação Profissional e de Gestores de Santa Catarina em DCNT* """
