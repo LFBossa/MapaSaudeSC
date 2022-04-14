@@ -1,0 +1,25 @@
+MS/SAPS/Departamento de Saúde da Família ­ DESF 
+Dados sujeitos à alteração 
+---Descrição dos Filtros Utilizados---
+Competência: FEV/2014.
+Estado: SC.
+Tipo de Produção: Atendimento Individual.
+"Tipo de Atendimento: Cons. agen. prog/cuid. cont., Consulta agendada, Dem. esp. esc. inicial/orient., Dem. esp. consulta no dia, Dem. esp. atendimento urgência."
+"Probl/ Condição Avaliada: Asma, Diabetes, DPOC, Hipertensão arterial, Obesidade, Tabagismo, Usuário de álcool, Saúde mental, D.Transmissíveis - Hanseníase, D.Transmissíveis - Tuberculose, Rast. câncer de mama, Rast. câncer do colo do útero."
+
+
+Uf;Ibge;Municipio;Asma;Diabetes;DPOC;Hipertensão arterial;Obesidade;Tabagismo;Usuário de álcool;Saúde mental;D.Transmissíveis - Hanseníase;D.Transmissíveis - Tuberculose;Rast. câncer de mama;Rast. câncer do colo do útero;
+SC;421220;PAPANDUVA;0;4;0;2;0;0;0;0;0;0;0;0;
+SC;420290;BRUSQUE;0;18;0;30;122;3;0;60;0;0;0;0;
+SC;421830;TRÊS BARRAS;1;0;0;1;0;0;0;0;0;0;0;0;
+SC;421970;XAXIM;0;0;0;0;0;0;12;0;0;0;0;0;
+SC;420460;CRICIÚMA;2;12;0;72;30;14;7;0;0;2;0;0;
+SC;420210;BARRA VELHA;3;68;5;177;67;8;3;46;0;0;3;3;
+SC;420830;ITAPEMA;7;130;6;332;26;0;0;199;0;0;0;0;
+SC;420320;CAMBORIÚ;0;0;0;4;0;0;0;0;0;0;0;0;
+
+
+Fonte: Sistema de Informação em Saúde para a Atenção Básica - SISAB;
+E-mail: sisab@saude.gov.br;
+Dado gerado em: 14 de Abril de 2022 - 15:51h
+Coordenação Geral de Informação da Atenção Primária - CGIAP/DESF

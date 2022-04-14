@@ -1,0 +1,28 @@
+MS/SAPS/Departamento de Saúde da Família ­ DESF 
+Dados sujeitos à alteração 
+---Descrição dos Filtros Utilizados---
+Competência: ABR/2014.
+Estado: SC.
+Tipo de Produção: Atendimento Individual.
+"Tipo de Atendimento: Cons. agen. prog/cuid. cont., Consulta agendada, Dem. esp. esc. inicial/orient., Dem. esp. consulta no dia, Dem. esp. atendimento urgência."
+"Probl/ Condição Avaliada: Asma, Diabetes, DPOC, Hipertensão arterial, Obesidade, Tabagismo, Usuário de álcool, Saúde mental, D.Transmissíveis - Hanseníase, D.Transmissíveis - Tuberculose, Rast. câncer de mama, Rast. câncer do colo do útero."
+
+
+Uf;Ibge;Municipio;Asma;Diabetes;DPOC;Hipertensão arterial;Obesidade;Tabagismo;Usuário de álcool;Saúde mental;D.Transmissíveis - Hanseníase;D.Transmissíveis - Tuberculose;Rast. câncer de mama;Rast. câncer do colo do útero;
+SC;420210;BARRA VELHA;9;91;5;226;52;14;5;95;0;0;27;26;
+SC;421220;PAPANDUVA;0;10;0;11;2;0;0;12;0;0;0;0;
+SC;420370;CANELINHA;0;0;0;0;0;0;0;4;0;0;0;0;
+SC;421755;SERRA ALTA;0;0;0;0;13;0;0;0;0;0;0;0;
+SC;421570;SANTO AMARO DA IMPERATRIZ;11;113;16;278;64;6;2;175;0;2;45;69;
+SC;420460;CRICIÚMA;0;48;1;160;73;13;9;0;0;0;0;0;
+SC;420320;CAMBORIÚ;0;1;0;0;148;0;0;0;0;0;0;0;
+SC;421830;TRÊS BARRAS;5;25;5;100;4;7;4;17;0;0;20;20;
+SC;421630;SÃO JOÃO BATISTA;0;1;0;4;0;1;0;2;0;0;0;0;
+SC;420830;ITAPEMA;30;95;6;384;43;4;3;266;0;0;0;0;
+SC;420290;BRUSQUE;0;23;0;15;42;0;0;22;0;0;0;0;
+
+
+Fonte: Sistema de Informação em Saúde para a Atenção Básica - SISAB;
+E-mail: sisab@saude.gov.br;
+Dado gerado em: 14 de Abril de 2022 - 15:51h
+Coordenação Geral de Informação da Atenção Primária - CGIAP/DESF

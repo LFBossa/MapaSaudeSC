@@ -1,0 +1,43 @@
+MS/SAPS/Departamento de Saúde da Família ­ DESF 
+Dados sujeitos à alteração 
+---Descrição dos Filtros Utilizados---
+Competência: OUT/2014.
+Estado: SC.
+Tipo de Produção: Atendimento Individual.
+"Tipo de Atendimento: Cons. agen. prog/cuid. cont., Consulta agendada, Dem. esp. esc. inicial/orient., Dem. esp. consulta no dia, Dem. esp. atendimento urgência."
+"Probl/ Condição Avaliada: Asma, Diabetes, DPOC, Hipertensão arterial, Obesidade, Tabagismo, Usuário de álcool, Saúde mental, D.Transmissíveis - Hanseníase, D.Transmissíveis - Tuberculose, Rast. câncer de mama, Rast. câncer do colo do útero."
+
+
+Uf;Ibge;Municipio;Asma;Diabetes;DPOC;Hipertensão arterial;Obesidade;Tabagismo;Usuário de álcool;Saúde mental;D.Transmissíveis - Hanseníase;D.Transmissíveis - Tuberculose;Rast. câncer de mama;Rast. câncer do colo do útero;
+SC;420830;ITAPEMA;22;80;6;337;60;21;6;117;0;0;0;0;
+SC;421570;SANTO AMARO DA IMPERATRIZ;16;103;6;194;39;10;3;119;0;2;36;26;
+SC;420320;CAMBORIÚ;37;471;32;1.386;168;44;20;598;0;5;12;30;
+SC;420110;ANITÁPOLIS;0;0;0;0;0;1;3;20;0;0;158;159;
+SC;421020;MAJOR GERCINO;0;6;1;6;1;0;0;8;0;0;0;0;
+SC;421540;SALTO VELOSO;0;28;19;53;6;6;0;10;0;0;0;0;
+SC;421700;SÃO LUDGERO;0;0;0;0;0;0;0;2;0;0;0;0;
+SC;420287;BRUNÓPOLIS;0;1;0;12;0;0;0;5;0;0;0;0;
+SC;421220;PAPANDUVA;4;21;1;115;3;5;0;88;0;1;1;0;
+SC;420130;ARAQUARI;1;8;1;24;15;0;0;2;0;0;0;0;
+SC;421660;SÃO JOSÉ;15;1;0;0;0;0;1;0;0;0;0;0;
+SC;420600;GOVERNADOR CELSO RAMOS;0;1;0;0;0;0;0;0;0;0;0;0;
+SC;420915;JOSÉ BOITEUX;0;4;0;5;2;1;0;27;0;0;0;0;
+SC;421830;TRÊS BARRAS;7;25;2;102;1;10;5;32;0;1;0;0;
+SC;420290;BRUSQUE;0;0;0;0;0;0;0;2;0;0;1;10;
+SC;421175;OTACÍLIO COSTA;0;27;6;63;3;4;0;51;0;0;2;9;
+SC;420230;BIGUAÇU;22;78;6;0;0;0;0;9;0;0;0;0;
+SC;420980;LEOBERTO LEAL;1;2;7;4;0;0;0;7;0;0;1;1;
+SC;420210;BARRA VELHA;27;116;15;239;52;20;8;94;0;0;49;56;
+SC;421000;LUIZ ALVES;6;44;2;158;53;18;7;156;0;1;79;95;
+SC;421630;SÃO JOÃO BATISTA;33;214;15;640;59;37;17;944;0;4;53;90;
+SC;421550;SANTA CECÍLIA;0;0;0;0;0;0;0;0;0;0;0;7;
+SC;421280;BALNEÁRIO PIÇARRAS;2;0;2;0;0;1;0;189;0;0;0;0;
+SC;421725;SÃO PEDRO DE ALCÂNTARA;6;10;2;20;4;0;0;8;0;0;2;114;
+SC;420460;CRICIÚMA;0;13;0;49;15;17;11;0;0;0;0;0;
+SC;420750;INDAIAL;0;7;0;0;0;0;0;0;0;0;0;0;
+
+
+Fonte: Sistema de Informação em Saúde para a Atenção Básica - SISAB;
+E-mail: sisab@saude.gov.br;
+Dado gerado em: 14 de Abril de 2022 - 15:52h
+Coordenação Geral de Informação da Atenção Primária - CGIAP/DESF

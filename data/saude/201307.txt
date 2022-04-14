@@ -1,0 +1,18 @@
+MS/SAPS/Departamento de Saúde da Família ­ DESF 
+Dados sujeitos à alteração 
+---Descrição dos Filtros Utilizados---
+Competência: JUL/2013.
+Estado: SC.
+Tipo de Produção: Atendimento Individual.
+"Tipo de Atendimento: Cons. agen. prog/cuid. cont., Consulta agendada, Dem. esp. esc. inicial/orient., Dem. esp. consulta no dia, Dem. esp. atendimento urgência."
+"Probl/ Condição Avaliada: Asma, Diabetes, DPOC, Hipertensão arterial, Obesidade, Tabagismo, Usuário de álcool, Saúde mental, D.Transmissíveis - Hanseníase, D.Transmissíveis - Tuberculose, Rast. câncer de mama, Rast. câncer do colo do útero."
+
+
+Uf;Ibge;Municipio;Asma;Diabetes;DPOC;Hipertensão arterial;Obesidade;Tabagismo;Usuário de álcool;Saúde mental;D.Transmissíveis - Hanseníase;D.Transmissíveis - Tuberculose;Rast. câncer de mama;Rast. câncer do colo do útero;
+SC;420460;CRICIÚMA;0;0;0;1;1;0;0;0;0;0;0;0;
+
+
+Fonte: Sistema de Informação em Saúde para a Atenção Básica - SISAB;
+E-mail: sisab@saude.gov.br;
+Dado gerado em: 14 de Abril de 2022 - 16:22h
+Coordenação Geral de Informação da Atenção Primária - CGIAP/DESF

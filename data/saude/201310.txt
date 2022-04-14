@@ -1,0 +1,25 @@
+MS/SAPS/Departamento de Saúde da Família ­ DESF 
+Dados sujeitos à alteração 
+---Descrição dos Filtros Utilizados---
+Competência: OUT/2013.
+Estado: SC.
+Tipo de Produção: Atendimento Individual.
+"Tipo de Atendimento: Cons. agen. prog/cuid. cont., Consulta agendada, Dem. esp. esc. inicial/orient., Dem. esp. consulta no dia, Dem. esp. atendimento urgência."
+"Probl/ Condição Avaliada: Asma, Diabetes, DPOC, Hipertensão arterial, Obesidade, Tabagismo, Usuário de álcool, Saúde mental, D.Transmissíveis - Hanseníase, D.Transmissíveis - Tuberculose, Rast. câncer de mama, Rast. câncer do colo do útero."
+
+
+Uf;Ibge;Municipio;Asma;Diabetes;DPOC;Hipertensão arterial;Obesidade;Tabagismo;Usuário de álcool;Saúde mental;D.Transmissíveis - Hanseníase;D.Transmissíveis - Tuberculose;Rast. câncer de mama;Rast. câncer do colo do útero;
+SC;420210;BARRA VELHA;28;1;1;14;5;10;4;2;0;0;9;9;
+SC;421220;PAPANDUVA;11;4;0;21;52;4;6;1;0;1;1;1;
+SC;421000;LUIZ ALVES;0;0;0;0;5;0;0;0;0;0;0;0;
+SC;420460;CRICIÚMA;0;7;0;26;15;10;8;0;0;0;0;0;
+SC;420320;CAMBORIÚ;0;0;0;0;14;0;0;0;0;0;0;0;
+SC;420690;IBIRAMA;0;0;0;0;0;0;0;6;0;0;0;0;
+SC;420830;ITAPEMA;10;32;2;95;11;3;2;69;0;0;0;1;
+SC;420290;BRUSQUE;0;0;0;0;0;0;0;21;0;0;0;0;
+
+
+Fonte: Sistema de Informação em Saúde para a Atenção Básica - SISAB;
+E-mail: sisab@saude.gov.br;
+Dado gerado em: 14 de Abril de 2022 - 16:22h
+Coordenação Geral de Informação da Atenção Primária - CGIAP/DESF

@@ -1,0 +1,26 @@
+MS/SAPS/Departamento de Saúde da Família ­ DESF 
+Dados sujeitos à alteração 
+---Descrição dos Filtros Utilizados---
+Competência: JAN/2014.
+Estado: SC.
+Tipo de Produção: Atendimento Individual.
+"Tipo de Atendimento: Cons. agen. prog/cuid. cont., Consulta agendada, Dem. esp. esc. inicial/orient., Dem. esp. consulta no dia, Dem. esp. atendimento urgência."
+"Probl/ Condição Avaliada: Asma, Diabetes, DPOC, Hipertensão arterial, Obesidade, Tabagismo, Usuário de álcool, Saúde mental, D.Transmissíveis - Hanseníase, D.Transmissíveis - Tuberculose, Rast. câncer de mama, Rast. câncer do colo do útero."
+
+
+Uf;Ibge;Municipio;Asma;Diabetes;DPOC;Hipertensão arterial;Obesidade;Tabagismo;Usuário de álcool;Saúde mental;D.Transmissíveis - Hanseníase;D.Transmissíveis - Tuberculose;Rast. câncer de mama;Rast. câncer do colo do útero;
+SC;421220;PAPANDUVA;2;4;2;2;2;0;0;8;0;0;0;0;
+SC;420210;BARRA VELHA;7;8;1;34;2;4;4;9;0;0;1;0;
+SC;421630;SÃO JOÃO BATISTA;0;1;0;2;0;0;0;3;0;0;0;0;
+SC;420915;JOSÉ BOITEUX;0;0;0;0;0;0;0;0;0;0;0;1;
+SC;420290;BRUSQUE;0;28;0;6;6;0;0;6;0;0;0;0;
+SC;421970;XAXIM;0;0;0;0;0;0;42;0;0;0;0;0;
+SC;420460;CRICIÚMA;0;7;0;32;15;10;2;0;0;0;0;0;
+SC;420830;ITAPEMA;0;109;3;383;23;2;0;206;0;0;0;0;
+SC;421540;SALTO VELOSO;0;3;0;5;0;0;0;0;0;0;0;0;
+
+
+Fonte: Sistema de Informação em Saúde para a Atenção Básica - SISAB;
+E-mail: sisab@saude.gov.br;
+Dado gerado em: 14 de Abril de 2022 - 15:51h
+Coordenação Geral de Informação da Atenção Primária - CGIAP/DESF
