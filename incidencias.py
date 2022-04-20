@@ -117,10 +117,24 @@ p.line(x="referencia", y=cidade_label, source=source,
 p.line(x="referencia", y=regiao, source=source,
        legend_label=regiao, alpha=0.7)
 p.line(x="referencia", y="SC", source=source,
-       legend_label="SC", alpha=0.5, line_dash="dashed")
+       legend_label="SC", alpha=0.6, line_dash="dashed",line_color="black")
 p.add_tools(TOOLTIPS)
 p.legend.location = 'top_left'
+
+f"""# Incidência de casos
+
+Comparando o número de atendimento de casos de {doença} em {cidade_label} com dados regionais e estaduais.
+"""
 st.bokeh_chart(p, use_container_width=True)
+
+"""
+O mapa acima contém dados obtivos pelo Sistema de informação em Saúde para a Atenção Básica 
+[SISAB](https://sisab.saude.gov.br/paginas/acessoRestrito/relatorio/federal/saude/RelSauProducao.xhtml), sobre atendimentos 
+individuais para as doenças elencadas.
+"""
+
+"""> Criado por  [Bossa](https://github.com/LFBossa) do 
+>[LABMAC](http://labmac.mat.blumenau.ufsc.br/) para o *Projeto Qualificação Profissional e de Gestores de Santa Catarina em [DCNT](https://dcnt.paginas.ufsc.br/)* """
 #fig, ax = plt.subplots(figsize=(10,5))
 # dadddos.plot(ax=ax)
 #ax.set_title(f"Índice de {dd} para cada mil habitantes em {cdd}")
