@@ -12,8 +12,10 @@ jupyter = "*"
 jupyterlab = "*"
 matplotlib = "*"
 statsmodels = "*"
+bokeh = "==2.4.1"
 
 [dev-packages]
+autopep8 = "*"
 
 [requires]
 python_version = "3.8"
