@@ -163,4 +163,5 @@ Dados de população obtidos do sistema [SIDRA](https://sidra.ibge.gov.br/tabela
 Geocodificação de endereços e fronteiras de cidades foi feita usando a API [CEP aberto](https://www.cepaberto.com/) e [Nominatim](https://nominatim.org/).
 """
 
-"""> Criado por  [Bossa](https://github.com/LFBossa) para o *Projeto Qualificação Profissional e de Gestores de Santa Catarina em DCNT* """
+"""> Criado por  [Bossa](https://github.com/LFBossa) do [LABMAC](http://labmac.mat.blumenau.ufsc.br/)
+> para o *Projeto Qualificação Profissional e de Gestores de Santa Catarina em [DCNT](https://dcnt.paginas.ufsc.br/)* """
