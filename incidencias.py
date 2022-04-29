@@ -30,9 +30,7 @@ def get_dados():
 
     def get_pop(ibge, year):
         if year == 2022:
-            year -= 1
-        elif year == 2013:
-            year += 1
+            year -= 1 
         return população.loc[ibge, str(year)]
 
     def get_pop_df(row):
