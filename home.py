@@ -66,9 +66,14 @@ def pop_estado(ano):
 @st.cache
 def get_estabelecimentos():
     ST = pd.read_pickle(BASE_URL + "parsed-data/estabelecimentos.pd.pkl")
+    ST["cnes"] = ST.CNES
     ST.set_index("CNES", inplace=True)
     ST["label"] = ST["NOME FANTASIA"]
+    geocodes = pd.read_pickle(BASE_URL + "parsed-data/geocodes.pd.pkl")
+    ST.update(geocodes)
+    ST["endereco"] = ST.apply(lambda x: f"{x.LOGRADOURO} {x.NUMERO}, {x.BAIRRO}", axis=1)
     return ST
+
 
 
 @st.cache(allow_output_mutation=True)
@@ -106,8 +111,11 @@ def get_incidencia(doenca, ano):
     return df
 
 
+def retrieve_data(line):
+    return line["lat"], line["lon"], line["label"], line["tipo_unidade"], line["endereco"], line["cnes"], line["MUNICIPIO"]
+
 st.sidebar.write("# Abas")
-MAIN_SWITCH = st.sidebar.radio("Escolha o tipo de visualização", ["Mapa", "Série"])
+MAIN_SWITCH = st.sidebar.radio("Escolha o tipo de visualização", ["Mapa", "Série", "Cidade"])
 st.sidebar.write("## Filtros")
 
 
@@ -179,7 +187,7 @@ if MAIN_SWITCH == "Série":
 Comparando o número de atendimento de casos de {doença} em {cidade_label} com dados regionais e estaduais.
     """
     st.bokeh_chart(p, use_container_width=True)
-else:
+elif MAIN_SWITCH == "Mapa":
     DOENCAS = get_doencas()
     POPULACAO = get_populacao()
     ESTABELECIMENTOS = get_estabelecimentos()
@@ -195,8 +203,6 @@ else:
     #    tipo_unidade_selectbox = tipo_unidade
 
 
-    def retrieve_data(line):
-        return line["lat"], line["lon"], line["label"]
 
 
     def ping_points():
@@ -204,11 +210,17 @@ else:
         function (row) {
             var marker;
             marker = L.marker(new L.LatLng(row[0], row[1]));
-            marker.bindPopup(`<b>${row[2]}</b>`)
+            marker.bindPopup(`<div style="margin-bottom: 6pt;"><b>${row[2]}</b><br><i>${row[3]}</i></div>
+            <div style="font-size: 8pt;text-transform: capitalize;">${row[4]}<br>
+            ${row[6]}
+            </div>
+            
+            <div style="float: right;">CNES ${row[5]}</div>
+            <div style="clear: both;"></div>`)
             return marker;
         };
         """
-        m = folium.Map([-27.2958165,-50.5933218], zoom_start=7.4,tiles="Stamen Toner")
+        m = folium.Map([-27.2958165,-50.5933218], zoom_start=7.4,tiles="OpenStreetMap")
         for x in tipo_unidade_selectbox:
             subconjunto = ESTABELECIMENTOS.query(f"tipo_unidade == '{x}'")
             dados = subconjunto.apply(retrieve_data, axis=1)
@@ -271,8 +283,107 @@ Mapa comparativo do total de casos de  {doenca_selecionada} no ano de {ano_selec
     folium.LayerControl().add_to(m)
 
     folium_static(m,  width=800, height=500)
+elif MAIN_SWITCH == "Cidade":
 
-"""
+    DOENCAS = get_doencas()
+    POPULACAO = get_populacao()
+    ESTABELECIMENTOS = get_estabelecimentos()
+
+
+    municipios_list = ESTABELECIMENTOS.MUNICIPIO.unique()
+    municipios_list.sort()
+    municipio_selecionado = st.sidebar.selectbox(
+        "Escolha a cidade", municipios_list)
+
+    def ping_points():
+        callback = """\
+        function (row) {
+            var marker;
+            marker = L.marker(new L.LatLng(row[0], row[1]));
+            marker.bindPopup(`<div style="margin-bottom: 6pt;"><b>${row[2]}</b><br><i>${row[3]}</i></div>
+            <div style="font-size: 8pt;text-transform: capitalize;">${row[4]}<br>
+            ${row[6]}
+            </div>
+            
+            <div style="float: right;">CNES ${row[5]}</div>
+            <div style="clear: both;"></div>`)
+            return marker;
+        };
+        """
+        m = folium.Map([-27.2958165,-50.5933218], zoom_start=7.4,tiles="OpenStreetMap") 
+        subconjunto = ESTABELECIMENTOS.query(f"MUNICIPIO == '{municipio_selecionado}'")
+        dados = subconjunto.apply(retrieve_data, axis=1)
+        FastMarkerCluster(dados, callback=callback,
+                        name=municipio_selecionado).add_to(m)
+        #MarkerCluster(subconjunto[["lat","lon"]].values).add_to(m)
+        return m
+
+
+    st.sidebar.write("""## Doença/ano
+    """)
+    doenca_selecionada = st.sidebar.selectbox(
+        "Selecione a doença", DOENCAS.columns[2:])
+    ano_selecionado = st.sidebar.slider(
+        "Selecione o ano de interesse", min_value=2014, max_value=2021)
+
+    m = ping_points()
+
+    filtrados_doenca = get_incidencia(doenca_selecionada, ano_selecionado)
+
+
+    GEOJSON = get_geojson()
+
+    for i, x in enumerate(GEOJSON["features"]):
+        try: 
+            objeto = x["properties"] 
+            idx = objeto["id"]
+            indice = filtrados_doenca.query(f"IBGE == {idx}")["incidência"].values[0]
+            objeto.update({"incidência": "{:0.3f}".format(indice).replace(".",",")})
+            #objeto = GEOJSON["features"][i]["properties"]
+            #objeto["incidência"] =  indice
+        except KeyError:
+            pass
+            #print(idx)
+
+
+    mapinha = folium.Choropleth(
+        geo_data=GEOJSON,
+        name=doenca_selecionada,
+        data=filtrados_doenca,
+        columns=["IBGE", "incidência"],
+        key_on="feature.properties.id",
+        bins=7,
+        fill_color="OrRd",
+        fill_opacity=0.5,
+        line_opacity=0.1,
+        highlight=True,
+        legend_name=f"{doenca_selecionada} (casos/mil hab.)"
+    )
+
+
+    """# Mapa da Saúde SC
+
+
+    """
+    mapinha.add_to(m)
+
+    folium.GeoJson(GEOJSON,
+        control=False,
+        style_function=lambda x: {'fillOpacity': 0.0, 'stroke': False},
+        popup=folium.GeoJsonPopup(fields=["name","incidência"])
+    ).add_to(m)
+
+    folium.LayerControl().add_to(m)
+
+    folium_static(m,  width=800, height=500)
+
+
+    subconjunto = ESTABELECIMENTOS.query(f"MUNICIPIO == '{municipio_selecionado}'").copy()
+    subconjunto.rename({'MUNICIPIO': municipio_selecionado}, axis=1, inplace=True)
+    """> Alguns pontos podem aparecer fora da cidade escolhida por erros de georeferenciamento, entretando a quantidade de estabelecimentos abaixo está contabilizada corretamente. """
+    st.write(subconjunto.groupby("tipo_unidade").count()[municipio_selecionado])
+
+"""---
 Esse applicativo contém dados obtivos pelo Sistema de informação em Saúde para a Atenção Básica 
 [SISAB](https://sisab.saude.gov.br/paginas/acessoRestrito/relatorio/federal/saude/RelSauProducao.xhtml), sobre atendimentos individuais para 
 as doenças listadas. 
@@ -282,5 +393,6 @@ Dados de população obtidos do sistema [SIDRA](https://sidra.ibge.gov.br/tabela
 Geocodificação de endereços e fronteiras de cidades foi feita usando a API [CEP aberto](https://www.cepaberto.com/) e [Nominatim](https://nominatim.org/).
 """
 
-"""> Criado por  [Bossa](https://github.com/LFBossa) do [LABMAC](http://labmac.mat.blumenau.ufsc.br/)
+"""---
+> Criado por  [Bossa](https://github.com/LFBossa) do [LABMAC](http://labmac.mat.blumenau.ufsc.br/)
 > para o *Projeto Qualificação Profissional e de Gestores de Santa Catarina em [DCNT](https://dcnt.paginas.ufsc.br/)* """
