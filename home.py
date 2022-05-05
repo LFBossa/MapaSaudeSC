@@ -33,7 +33,20 @@ GOOGLE_ANALYTICS = """<!-- Global site tag (gtag.js) - Google Analytics -->
   gtag('config', 'G-F9SFDFJ7BW');
 </script>"""
 
-components.html(GOOGLE_ANALYTICS)
+
+STATCOUNTER = """<!-- Default Statcounter code for Mapa Saúde SC https://share.streamlit.io/ -->
+<script type="text/javascript">
+var sc_project=12750318; 
+var sc_invisible=1; 
+var sc_security="8dfc8acf"; 
+</script>
+<script type="text/javascript"
+src="https://www.statcounter.com/counter/counter.js" async></script>
+<noscript><div class="statcounter"><a title="Web Analytics"
+href="https://statcounter.com/" target="_blank"><img class="statcounter"
+src="https://c.statcounter.com/12750318/0/8dfc8acf/1/" alt="Web Analytics"
+referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+<!-- End of Statcounter Code -->"""
 # Incidências
 
 @st.cache
@@ -410,3 +423,5 @@ Geocodificação de endereços e fronteiras de cidades foi feita usando a API [C
 """---
 > Criado por  [Bossa](https://github.com/LFBossa) do [LABMAC](http://labmac.mat.blumenau.ufsc.br/)
 > para o *Projeto Qualificação Profissional e de Gestores de Santa Catarina em [DCNT](https://dcnt.paginas.ufsc.br/)* """
+
+components.html(STATCOUNTER)
