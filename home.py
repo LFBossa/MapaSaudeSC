@@ -11,6 +11,8 @@ import json
 import folium
 from folium.plugins import FastMarkerCluster
 from streamlit_folium import folium_static
+import streamlit.components.v1 as components
+
 
 # descomentar para versão online
 #BASE_URL = "https://raw.githubusercontent.com/LFBossa/MapaSaudeSC/main/"
@@ -20,6 +22,18 @@ st.set_page_config(  # layout="wide",
     page_title="Mapa da Saúde SC",
     page_icon="🧊")
 
+
+GOOGLE_ANALYTICS = """<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-F9SFDFJ7BW"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-F9SFDFJ7BW');
+</script>"""
+
+components.html(GOOGLE_ANALYTICS)
 # Incidências
 
 @st.cache
