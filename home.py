@@ -95,9 +95,7 @@ def get_estabelecimentos():
     ST = pd.read_pickle(BASE_URL + "parsed-data/estabelecimentos.pd.pkl")
     ST["cnes"] = ST.CNES
     ST.set_index("CNES", inplace=True)
-    ST["label"] = ST["NOME FANTASIA"]
-    geocodes = pd.read_pickle(BASE_URL + "parsed-data/geocodes.pd.pkl")
-    ST.update(geocodes)
+    ST["label"] = ST["NOME FANTASIA"] 
     ST["endereco"] = ST.apply(lambda x: f"{x.LOGRADOURO} {x.NUMERO}, {x.BAIRRO}", axis=1)
     return ST
 
