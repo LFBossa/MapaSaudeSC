@@ -13,6 +13,7 @@ jupyterlab = "*"
 matplotlib = "*"
 statsmodels = "*"
 bokeh = "==2.4.1"
+jupyter-bokeh = "*"
 
 [dev-packages]
 autopep8 = "*"
