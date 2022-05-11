@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<head>    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-1.12.4.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.6.0/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_df6d5f560fa430f9148361e9e53d2578 {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+            </style>
+        
+</head>
+<body>    
+    
+            <div class="folium-map" id="map_df6d5f560fa430f9148361e9e53d2578" ></div>
+        
+</body>
+<script>    
+    
+            var map_df6d5f560fa430f9148361e9e53d2578 = L.map(
+                "map_df6d5f560fa430f9148361e9e53d2578",
+                {
+                    center: [-27.2958165, -50.5933218],
+                    crs: L.CRS.EPSG3857,
+                    zoom: 7.4,
+                    zoomControl: true,
+                    preferCanvas: false,
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_d67825d05755eb92a6eb6903650ee558 = L.tileLayer(
+                "https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",
+                {"attribution": "Data by \u0026copy; \u003ca href=\"http://openstreetmap.org\"\u003eOpenStreetMap\u003c/a\u003e, under \u003ca href=\"http://www.openstreetmap.org/copyright\"\u003eODbL\u003c/a\u003e.", "detectRetina": false, "maxNativeZoom": 18, "maxZoom": 18, "minZoom": 0, "noWrap": false, "opacity": 1, "subdomains": "abc", "tms": false}
+            ).addTo(map_df6d5f560fa430f9148361e9e53d2578);
+        
+    
+            var marker_caa2899a37df069cc454dae23db08b43 = L.marker(
+                [-27.2388, -52.0058],
+                {}
+            ).addTo(map_df6d5f560fa430f9148361e9e53d2578);
+        
+    
+            var div_icon_cacae393e9af4d12e196f43f9e10eb5a = L.divIcon({"className": "empty", "html": "\u003cdiv style=\u0027background-color: white;\n                border-radius: 15px;\n                border: 1px solid black;\n                width: 120px;\n                height: 68px;\n                text-align: center;\n                padding-top: 10px;\u0027\u003e\n                \u003cb style=\"color: orange;\"\u003eAlto Uruguai Catarinense\u003c/b\u003e\u003cbr\u003e87\u003c/div\u003e\n                ", "iconSize": [120, 50]});
+            marker_caa2899a37df069cc454dae23db08b43.setIcon(div_icon_cacae393e9af4d12e196f43f9e10eb5a);
+        
+    
+            var marker_dcc39e2aa99dc6db8c13746d2209a2ab = L.marker(
+                [-27.214, -49.78],
+                {}
+            ).addTo(map_df6d5f560fa430f9148361e9e53d2578);
+        
+    
+            var div_icon_21245ba7b7dfa7c107b61ebd2dc7eb10 = L.divIcon({"className": "empty", "html": "\u003cdiv style=\u0027background-color: white;\n                border-radius: 15px;\n                border: 1px solid black;\n                width: 120px;\n                height: 68px;\n                text-align: center;\n                padding-top: 10px;\u0027\u003e\n                \u003cb style=\"color: blue;\"\u003eAlto Vale Do Itaja\u00ed\u003c/b\u003e\u003cbr\u003e207\u003c/div\u003e\n                ", "iconSize": [120, 50]});
+            marker_dcc39e2aa99dc6db8c13746d2209a2ab.setIcon(div_icon_21245ba7b7dfa7c107b61ebd2dc7eb10);
+        
+    
+            var marker_4508af1794801b23265a6aa05e84a76f = L.marker(
+                [-26.7925, -51.0113822],
+                {}
+            ).addTo(map_df6d5f560fa430f9148361e9e53d2578);
+        
+    
+            var div_icon_3dbfb1436e3e8f014e213e1954d6d99c = L.divIcon({"className": "empty", "html": "\u003cdiv style=\u0027background-color: white;\n                border-radius: 15px;\n                border: 1px solid black;\n                width: 120px;\n                height: 68px;\n                text-align: center;\n                padding-top: 10px;\u0027\u003e\n                \u003cb style=\"color: orange;\"\u003eAlto Vale Do Rio Do Peixe\u003c/b\u003e\u003cbr\u003e164\u003c/div\u003e\n                ", "iconSize": [120, 50]});
+            marker_4508af1794801b23265a6aa05e84a76f.setIcon(div_icon_3dbfb1436e3e8f014e213e1954d6d99c);
+        
+    
+            var marker_8f903fb39e56b050055264718d03da8a = L.marker(
+                [-28.6691799957, -49.3649733817],
+                {}
+            ).addTo(map_df6d5f560fa430f9148361e9e53d2578);
+        
+    
+            var div_icon_4ee976d8de7dbb11c7fc753568c06405 = L.divIcon({"className": "empty", "html": "\u003cdiv style=\u0027background-color: white;\n                border-radius: 15px;\n                border: 1px solid black;\n                width: 120px;\n                height: 68px;\n                text-align: center;\n                padding-top: 10px;\u0027\u003e\n                \u003cb style=\"color: green;\"\u003eCarbon\u00edfera\u003c/b\u003e\u003cbr\u003e273\u003c/div\u003e\n                ", "iconSize": [120, 50]});
+            marker_8f903fb39e56b050055264718d03da8a.setIcon(div_icon_4ee976d8de7dbb11c7fc753568c06405);
+        
+    
+            var marker_1b8c9e3dc24bc0afebeace7f41dd08fa = L.marker(
+                [-26.73, -53.5],
+                {}
+            ).addTo(map_df6d5f560fa430f9148361e9e53d2578);
+        
+    
+            var div_icon_e60d7bd86974adb715d99800ea2ff90f = L.divIcon({"className": "empty", "html": "\u003cdiv style=\u0027background-color: white;\n                border-radius: 15px;\n                border: 1px solid black;\n                width: 120px;\n                height: 68px;\n                text-align: center;\n                padding-top: 10px;\u0027\u003e\n                \u003cb style=\"color: rgba(120,200,120);\"\u003eExtremo Oeste\u003c/b\u003e\u003cbr\u003e200\u003c/div\u003e\n                ", "iconSize": [120, 50]});
+            marker_1b8c9e3dc24bc0afebeace7f41dd08fa.setIcon(div_icon_e60d7bd86974adb715d99800ea2ff90f);
+        
+    
+            var marker_0ef4ad22b4b9d71db3ac355e32935a0a = L.marker(
+                [-29.0105, -49.6354],
+                {}
+            ).addTo(map_df6d5f560fa430f9148361e9e53d2578);
+        
+    
+            var div_icon_353509f47ee669ce319cc28446c36d8c = L.divIcon({"className": "empty", "html": "\u003cdiv style=\u0027background-color: white;\n                border-radius: 15px;\n                border: 1px solid black;\n                width: 120px;\n                height: 68px;\n                text-align: center;\n                padding-top: 10px;\u0027\u003e\n                \u003cb style=\"color: green;\"\u003eExtremo Sul Catarinense\u003c/b\u003e\u003cbr\u003e128\u003c/div\u003e\n                ", "iconSize": [120, 50]});
+            marker_0ef4ad22b4b9d71db3ac355e32935a0a.setIcon(div_icon_353509f47ee669ce319cc28446c36d8c);
+        
+    
+            var marker_d24ee85def7231c5b2efd15ab9250793 = L.marker(
+                [-26.917540004, -48.652109155],
+                {}
+            ).addTo(map_df6d5f560fa430f9148361e9e53d2578);
+        
+    
+            var div_icon_956624fbe7f1d31377de498bba191ad2 = L.divIcon({"className": "empty", "html": "\u003cdiv style=\u0027background-color: white;\n                border-radius: 15px;\n                border: 1px solid black;\n                width: 120px;\n                height: 68px;\n                text-align: center;\n                padding-top: 10px;\u0027\u003e\n                \u003cb style=\"color: blue;\"\u003eFoz Do Rio Itaja\u00ed\u003c/b\u003e\u003cbr\u003e289\u003c/div\u003e\n                ", "iconSize": [120, 50]});
+            marker_d24ee85def7231c5b2efd15ab9250793.setIcon(div_icon_956624fbe7f1d31377de498bba191ad2);
+        
+    
+            var marker_c469cace306dc6741d24a41c58c2aeba = L.marker(
+                [-27.6031199944, -48.8274],
+                {}
+            ).addTo(map_df6d5f560fa430f9148361e9e53d2578);
+        
+    
+            var div_icon_608bab3519a6e76afc0621e950d559e6 = L.divIcon({"className": "empty", "html": "\u003cdiv style=\u0027background-color: white;\n                border-radius: 15px;\n                border: 1px solid black;\n                width: 120px;\n                height: 68px;\n                text-align: center;\n                padding-top: 10px;\u0027\u003e\n                \u003cb style=\"color: gray;\"\u003eGrande Florian\u00f3polis\u003c/b\u003e\u003cbr\u003e811\u003c/div\u003e\n                ", "iconSize": [120, 50]});
+            marker_c469cace306dc6741d24a41c58c2aeba.setIcon(div_icon_608bab3519a6e76afc0621e950d559e6);
+        
+    
+            var marker_aba015b33f5a9010df52136fb7dbca39 = L.marker(
+                [-28.3727, -48.8861],
+                {}
+            ).addTo(map_df6d5f560fa430f9148361e9e53d2578);
+        
+    
+            var div_icon_4eebfe54bc9a0dac6e866a0bef080348 = L.divIcon({"className": "empty", "html": "\u003cdiv style=\u0027background-color: white;\n                border-radius: 15px;\n                border: 1px solid black;\n                width: 120px;\n                height: 68px;\n                text-align: center;\n                padding-top: 10px;\u0027\u003e\n                \u003cb style=\"color: green;\"\u003eLaguna\u003c/b\u003e\u003cbr\u003e285\u003c/div\u003e\n                ", "iconSize": [120, 50]});
+            marker_aba015b33f5a9010df52136fb7dbca39.setIcon(div_icon_4eebfe54bc9a0dac6e866a0bef080348);
+        
+    
+            var marker_79f94eb86ab738e71e9bab3179ab7392 = L.marker(
+                [-27.3986, -51.2258],
+                {}
+            ).addTo(map_df6d5f560fa430f9148361e9e53d2578);
+        
+    
+            var div_icon_f5c5b53d60a49f77b4fc86a948f754db = L.divIcon({"className": "empty", "html": "\u003cdiv style=\u0027background-color: white;\n                border-radius: 15px;\n                border: 1px solid black;\n                width: 120px;\n                height: 68px;\n                text-align: center;\n                padding-top: 10px;\u0027\u003e\n                \u003cb style=\"color: orange;\"\u003eMeio Oeste\u003c/b\u003e\u003cbr\u003e137\u003c/div\u003e\n                ", "iconSize": [120, 50]});
+            marker_79f94eb86ab738e71e9bab3179ab7392.setIcon(div_icon_f5c5b53d60a49f77b4fc86a948f754db);
+        
+    
+            var marker_801957efc6036130798d4d5b5e6052ee = L.marker(
+                [-26.919, -49.3526],
+                {}
+            ).addTo(map_df6d5f560fa430f9148361e9e53d2578);
+        
+    
+            var div_icon_537cfdcc6cebb32ed007d55d345b8b43 = L.divIcon({"className": "empty", "html": "\u003cdiv style=\u0027background-color: white;\n                border-radius: 15px;\n                border: 1px solid black;\n                width: 120px;\n                height: 68px;\n                text-align: center;\n                padding-top: 10px;\u0027\u003e\n                \u003cb style=\"color: blue;\"\u003eM\u00e9dio Vale Do Itaja\u00ed\u003c/b\u003e\u003cbr\u003e426\u003c/div\u003e\n                ", "iconSize": [120, 50]});
+            marker_801957efc6036130798d4d5b5e6052ee.setIcon(div_icon_537cfdcc6cebb32ed007d55d345b8b43);
+        
+    
+            var marker_6a56a0442ac0a84a98dd5320cb0f9ec7 = L.marker(
+                [-26.315430009, -48.846],
+                {}
+            ).addTo(map_df6d5f560fa430f9148361e9e53d2578);
+        
+    
+            var div_icon_acfc91abd9c471f651c0236b7c54a29f = L.divIcon({"className": "empty", "html": "\u003cdiv style=\u0027background-color: white;\n                border-radius: 15px;\n                border: 1px solid black;\n                width: 120px;\n                height: 68px;\n                text-align: center;\n                padding-top: 10px;\u0027\u003e\n                \u003cb style=\"color: rgba(197 19 197);\"\u003eNordeste\u003c/b\u003e\u003cbr\u003e435\u003c/div\u003e\n                ", "iconSize": [120, 50]});
+            marker_6a56a0442ac0a84a98dd5320cb0f9ec7.setIcon(div_icon_acfc91abd9c471f651c0236b7c54a29f);
+        
+    
+            var marker_f1fc692d2645c04a0a4eb6944a4b197b = L.marker(
+                [-27.1, -52.6826],
+                {}
+            ).addTo(map_df6d5f560fa430f9148361e9e53d2578);
+        
+    
+            var div_icon_4ac028ddb9549387fe6e27b9fb3145c5 = L.divIcon({"className": "empty", "html": "\u003cdiv style=\u0027background-color: white;\n                border-radius: 15px;\n                border: 1px solid black;\n                width: 120px;\n                height: 68px;\n                text-align: center;\n                padding-top: 10px;\u0027\u003e\n                \u003cb style=\"color: rgba(120,200,120);\"\u003eOeste\u003c/b\u003e\u003cbr\u003e242\u003c/div\u003e\n                ", "iconSize": [120, 50]});
+            marker_f1fc692d2645c04a0a4eb6944a4b197b.setIcon(div_icon_4ac028ddb9549387fe6e27b9fb3145c5);
+        
+    
+            var marker_e9cb92e53defff68e800f89d36ac0f6f = L.marker(
+                [-26.2387635, -49.8306247],
+                {}
+            ).addTo(map_df6d5f560fa430f9148361e9e53d2578);
+        
+    
+            var div_icon_27ce92bff36036dd3101946ee2e06d76 = L.divIcon({"className": "empty", "html": "\u003cdiv style=\u0027background-color: white;\n                border-radius: 15px;\n                border: 1px solid black;\n                width: 120px;\n                height: 68px;\n                text-align: center;\n                padding-top: 10px;\u0027\u003e\n                \u003cb style=\"color: rgba(197 19 197);\"\u003ePlanalto Norte\u003c/b\u003e\u003cbr\u003e218\u003c/div\u003e\n                ", "iconSize": [120, 50]});
+            marker_e9cb92e53defff68e800f89d36ac0f6f.setIcon(div_icon_27ce92bff36036dd3101946ee2e06d76);
+        
+    
+            var marker_181c364524115c58d35c1e528b160fce = L.marker(
+                [-27.816, -50.3226419824],
+                {}
+            ).addTo(map_df6d5f560fa430f9148361e9e53d2578);
+        
+    
+            var div_icon_d55bf9d7471febd0d064eb03015cf375 = L.divIcon({"className": "empty", "html": "\u003cdiv style=\u0027background-color: white;\n                border-radius: 15px;\n                border: 1px solid black;\n                width: 120px;\n                height: 68px;\n                text-align: center;\n                padding-top: 10px;\u0027\u003e\n                \u003cb style=\"color: orange;\"\u003eSerra Catarinense\u003c/b\u003e\u003cbr\u003e189\u003c/div\u003e\n                ", "iconSize": [120, 50]});
+            marker_181c364524115c58d35c1e528b160fce.setIcon(div_icon_d55bf9d7471febd0d064eb03015cf375);
+        
+    
+            var marker_fd5185a6164a7e7ae8be6d58ce00c5ef = L.marker(
+                [-26.7525, -52.2544],
+                {}
+            ).addTo(map_df6d5f560fa430f9148361e9e53d2578);
+        
+    
+            var div_icon_dbfe02ae8a88a973226db10bc92dc950 = L.divIcon({"className": "empty", "html": "\u003cdiv style=\u0027background-color: white;\n                border-radius: 15px;\n                border: 1px solid black;\n                width: 120px;\n                height: 68px;\n                text-align: center;\n                padding-top: 10px;\u0027\u003e\n                \u003cb style=\"color: rgba(120,200,120);\"\u003eXanxer\u00ea\u003c/b\u003e\u003cbr\u003e144\u003c/div\u003e\n                ", "iconSize": [120, 50]});
+            marker_fd5185a6164a7e7ae8be6d58ce00c5ef.setIcon(div_icon_dbfe02ae8a88a973226db10bc92dc950);
+        
+</script>
