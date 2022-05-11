@@ -49,7 +49,7 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
 <!-- End of Statcounter Code -->"""
 # Incidências
 
-@st.cache
+@st.cache(ttl=600)
 def get_dados():
     doenças = pd.read_csv(BASE_URL + "parsed-data/saude-series.csv")
     população = pd.read_csv(BASE_URL + "parsed-data/populacao.csv")
@@ -90,7 +90,7 @@ def pop_estado(ano):
     return população[str(ano)].sum()
 
 # MAPA
-@st.cache
+@st.cache(ttl=600)
 def get_estabelecimentos():
     ST = pd.read_pickle(BASE_URL + "parsed-data/estabelecimentos.pd.pkl")
     ST["cnes"] = ST.CNES
@@ -101,7 +101,7 @@ def get_estabelecimentos():
 
 
 
-@st.cache(allow_output_mutation=True)
+@st.cache(allow_output_mutation=True,ttl=600)
 def get_geojson():
     PATH = BASE_URL + "data/geoloc/boundaries-simplified.json"
     try:
@@ -113,20 +113,20 @@ def get_geojson():
     return geojson
 
 
-@st.cache
+@st.cache(ttl=600)
 def get_doencas():
     doencas = pd.read_csv(BASE_URL + "parsed-data/doencas2.csv")
     return doencas
 
 
-@st.cache
+@st.cache(ttl=600)
 def get_populacao():
     populi = pd.read_csv(BASE_URL + "parsed-data/populacao.csv")
     populi.set_index("COD_IBGE", inplace=True)
     return populi
 
 
-@st.cache
+@st.cache(ttl=600)
 def get_incidencia(doenca, ano):
     populacao = get_populacao()
     doencas = get_doencas()
