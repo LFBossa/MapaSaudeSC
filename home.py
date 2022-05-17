@@ -18,6 +18,8 @@ import streamlit.components.v1 as components
 #BASE_URL = "https://raw.githubusercontent.com/LFBossa/MapaSaudeSC/main/"
 BASE_URL = "./"
 
+INDICE_NAME = "atendimentos/mil hab."
+
 st.set_page_config(  # layout="wide",
     page_title="Mapa da Saúde SC",
     page_icon="🧊")
@@ -132,7 +134,7 @@ def get_incidencia(doenca, ano):
     doencas = get_doencas()
     serie = doencas.query(f"ano == {ano}").set_index("Ibge")[doenca]
     a = serie.div(populacao[f"{ano}"])*1000
-    df = pd.DataFrame({"IBGE": a.index.values, "índice": a.values})
+    df = pd.DataFrame({"IBGE": a.index.values, INDICE_NAME: a.values})
     return df
 
 
@@ -269,8 +271,8 @@ elif MAIN_SWITCH == "Mapa":
         try: 
             objeto = x["properties"] 
             idx = objeto["id"]
-            indice = filtrados_doenca.query(f"IBGE == {idx}")["índice"].values[0]
-            objeto.update({"índice": "{:0.3f}".format(indice).replace(".",",")})
+            indice = filtrados_doenca.query(f"IBGE == {idx}")[INDICE_NAME].values[0]
+            objeto.update({INDICE_NAME: "{:0.3f}".format(indice).replace(".",",")})
             #objeto = GEOJSON["features"][i]["properties"]
             #objeto["incidência"] =  indice
         except KeyError:
@@ -282,7 +284,7 @@ elif MAIN_SWITCH == "Mapa":
         geo_data=GEOJSON,
         name=doenca_selecionada,
         data=filtrados_doenca,
-        columns=["IBGE", "índice"],
+        columns=["IBGE", INDICE_NAME],
         key_on="feature.properties.id",
         bins=7,
         fill_color="OrRd",
@@ -295,19 +297,25 @@ elif MAIN_SWITCH == "Mapa":
 
     f"""# Mapa da Saúde SC
 
-Mapa comparativo do total de atendimentos de  {doenca_selecionada} no ano de {ano_selecionado}.
+Mapa comparativo do total de atendimentos de  **{doenca_selecionada}** no ano de **{ano_selecionado}**.\n
     """
     mapinha.add_to(m)
 
     folium.GeoJson(GEOJSON,
         control=False,
         style_function=lambda x: {'fillOpacity': 0.0, 'stroke': False},
-        popup=folium.GeoJsonPopup(fields=["name","índice"])
+        popup=folium.GeoJsonPopup(fields=["município",INDICE_NAME])
     ).add_to(m)
 
     folium.LayerControl().add_to(m)
 
     folium_static(m,  width=800, height=500)
+    with st.expander("Ajuda"): 
+        """- Ao clicar sobre um município, aparece um balão com seu nome e o número de atendimentos para cada mil habitantes, registrados no ano selecionado.
+- A escala acima varia entre o maior e o menor índices registrados entre as cidades. O valor máximo da escala não representa o valor do índice para o estado.
+- Navegando  no mapa:
+    - Clique, segura e arrasta: move o mapa
+    - Controle de zoom: rodinha do mouse ou botões `+` e `-`  no canto superior esquerdo."""
 elif MAIN_SWITCH == "Cidade":
 
     DOENCAS = get_doencas()
@@ -362,8 +370,8 @@ elif MAIN_SWITCH == "Cidade":
         try: 
             objeto = x["properties"] 
             idx = objeto["id"]
-            indice = filtrados_doenca.query(f"IBGE == {idx}")["índice"].values[0]
-            objeto.update({"índice": "{:0.3f}".format(indice).replace(".",",")})
+            indice = filtrados_doenca.query(f"IBGE == {idx}")[INDICE_NAME].values[0]
+            objeto.update({INDICE_NAME: "{:0.3f}".format(indice).replace(".",",")})
             #objeto = GEOJSON["features"][i]["properties"]
             #objeto["incidência"] =  indice
         except KeyError:
@@ -375,7 +383,7 @@ elif MAIN_SWITCH == "Cidade":
         geo_data=GEOJSON,
         name=doenca_selecionada,
         data=filtrados_doenca,
-        columns=["IBGE", "índice"],
+        columns=["IBGE", INDICE_NAME],
         key_on="feature.properties.id",
         bins=7,
         fill_color="OrRd",
@@ -386,16 +394,17 @@ elif MAIN_SWITCH == "Cidade":
     )
 
 
-    """# Mapa da Saúde SC
+    f"""# Mapa da Saúde SC
 
-
+Dependendo do nível de zoom, aparece um número circulado abaixo no mapa. Esse número indica o total de estabelecimentos de saúde registrados no município de **{municipio_selecionado}**.\n 
+Para se obter o índice de atendimento para cada mil habitantes para a doença selecionada, clique sobre a cidade.
     """
     mapinha.add_to(m)
 
     folium.GeoJson(GEOJSON,
         control=False,
         style_function=lambda x: {'fillOpacity': 0.0, 'stroke': False},
-        popup=folium.GeoJsonPopup(fields=["name","índice"])
+        popup=folium.GeoJsonPopup(fields=["município",INDICE_NAME])
     ).add_to(m)
 
     folium.LayerControl().add_to(m)
@@ -407,6 +416,12 @@ elif MAIN_SWITCH == "Cidade":
     subconjunto.rename({'MUNICIPIO': municipio_selecionado}, axis=1, inplace=True)
     """> Alguns pontos podem aparecer fora da cidade escolhida por erros de georeferenciamento, entretando a quantidade de estabelecimentos abaixo está contabilizada corretamente. """
     st.write(subconjunto.groupby("tipo_unidade").count()[municipio_selecionado])
+    with st.expander("Ajuda"): 
+        """- Ao clicar sobre um município, aparece um balão com seu nome e o número de atendimentos para cada mil habitantes, registrados no ano selecionado.
+- A escala acima varia entre o maior e o menor índices registrados entre as cidades. O valor máximo da escala não representa o valor do índice para o estado.
+- Navegando  no mapa:
+    - Clique, segura e arrasta: move o mapa
+    - Controle de zoom: rodinha do mouse ou botões `+` e `-`  no canto superior esquerdo."""
 
 """---
 Esse applicativo contém dados obtivos pelo Sistema de informação em Saúde para a Atenção Básica 
