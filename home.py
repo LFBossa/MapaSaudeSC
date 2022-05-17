@@ -208,8 +208,8 @@ if MAIN_SWITCH == "Série":
     p.add_tools(TOOLTIPS)
     p.legend.location = 'top_left'
 
-    f"""# Índice de casos
-Comparando o número de atendimento de casos de {doença} em {cidade_label} com dados regionais e estaduais.
+    f"""# Índice de atendimentos
+Comparando o número de atendimentos de {doença} em {cidade_label} com dados regionais e estaduais.
     """
     st.bokeh_chart(p, use_container_width=True)
 elif MAIN_SWITCH == "Mapa":
@@ -289,13 +289,13 @@ elif MAIN_SWITCH == "Mapa":
         fill_opacity=0.5,
         line_opacity=0.1,
         highlight=True,
-        legend_name=f"{doenca_selecionada} (casos/mil hab.)"
+        legend_name=f"{doenca_selecionada} (atendimentos/mil hab.)"
     )
 
 
     f"""# Mapa da Saúde SC
 
-Mapa comparativo do total de casos de  {doenca_selecionada} no ano de {ano_selecionado}.
+Mapa comparativo do total de atendimentos de  {doenca_selecionada} no ano de {ano_selecionado}.
     """
     mapinha.add_to(m)
 
@@ -382,7 +382,7 @@ elif MAIN_SWITCH == "Cidade":
         fill_opacity=0.5,
         line_opacity=0.1,
         highlight=True,
-        legend_name=f"{doenca_selecionada} (casos/mil hab.)"
+        legend_name=f"{doenca_selecionada} (atendimentos/mil hab.)"
     )
 
 
