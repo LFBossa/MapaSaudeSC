@@ -132,7 +132,7 @@ def get_incidencia(doenca, ano):
     doencas = get_doencas()
     serie = doencas.query(f"ano == {ano}").set_index("Ibge")[doenca]
     a = serie.div(populacao[f"{ano}"])*1000
-    df = pd.DataFrame({"IBGE": a.index.values, "incidência": a.values})
+    df = pd.DataFrame({"IBGE": a.index.values, "índice": a.values})
     return df
 
 
@@ -208,7 +208,7 @@ if MAIN_SWITCH == "Série":
     p.add_tools(TOOLTIPS)
     p.legend.location = 'top_left'
 
-    f"""# Incidência de casos
+    f"""# Índice de casos
 Comparando o número de atendimento de casos de {doença} em {cidade_label} com dados regionais e estaduais.
     """
     st.bokeh_chart(p, use_container_width=True)
@@ -269,8 +269,8 @@ elif MAIN_SWITCH == "Mapa":
         try: 
             objeto = x["properties"] 
             idx = objeto["id"]
-            indice = filtrados_doenca.query(f"IBGE == {idx}")["incidência"].values[0]
-            objeto.update({"incidência": "{:0.3f}".format(indice).replace(".",",")})
+            indice = filtrados_doenca.query(f"IBGE == {idx}")["índice"].values[0]
+            objeto.update({"índice": "{:0.3f}".format(indice).replace(".",",")})
             #objeto = GEOJSON["features"][i]["properties"]
             #objeto["incidência"] =  indice
         except KeyError:
@@ -282,7 +282,7 @@ elif MAIN_SWITCH == "Mapa":
         geo_data=GEOJSON,
         name=doenca_selecionada,
         data=filtrados_doenca,
-        columns=["IBGE", "incidência"],
+        columns=["IBGE", "índice"],
         key_on="feature.properties.id",
         bins=7,
         fill_color="OrRd",
@@ -302,7 +302,7 @@ Mapa comparativo do total de casos de  {doenca_selecionada} no ano de {ano_selec
     folium.GeoJson(GEOJSON,
         control=False,
         style_function=lambda x: {'fillOpacity': 0.0, 'stroke': False},
-        popup=folium.GeoJsonPopup(fields=["name","incidência"])
+        popup=folium.GeoJsonPopup(fields=["name","índice"])
     ).add_to(m)
 
     folium.LayerControl().add_to(m)
@@ -362,8 +362,8 @@ elif MAIN_SWITCH == "Cidade":
         try: 
             objeto = x["properties"] 
             idx = objeto["id"]
-            indice = filtrados_doenca.query(f"IBGE == {idx}")["incidência"].values[0]
-            objeto.update({"incidência": "{:0.3f}".format(indice).replace(".",",")})
+            indice = filtrados_doenca.query(f"IBGE == {idx}")["índice"].values[0]
+            objeto.update({"índice": "{:0.3f}".format(indice).replace(".",",")})
             #objeto = GEOJSON["features"][i]["properties"]
             #objeto["incidência"] =  indice
         except KeyError:
@@ -375,7 +375,7 @@ elif MAIN_SWITCH == "Cidade":
         geo_data=GEOJSON,
         name=doenca_selecionada,
         data=filtrados_doenca,
-        columns=["IBGE", "incidência"],
+        columns=["IBGE", "índice"],
         key_on="feature.properties.id",
         bins=7,
         fill_color="OrRd",
@@ -395,7 +395,7 @@ elif MAIN_SWITCH == "Cidade":
     folium.GeoJson(GEOJSON,
         control=False,
         style_function=lambda x: {'fillOpacity': 0.0, 'stroke': False},
-        popup=folium.GeoJsonPopup(fields=["name","incidência"])
+        popup=folium.GeoJsonPopup(fields=["name","índice"])
     ).add_to(m)
 
     folium.LayerControl().add_to(m)
