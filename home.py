@@ -98,7 +98,7 @@ def get_estabelecimentos():
     ST["cnes"] = ST.CNES
     ST.set_index("CNES", inplace=True)
     ST["label"] = ST["NOME FANTASIA"] 
-    ST["endereco"] = ST.apply(lambda x: f"{x.LOGRADOURO} {x.NUMERO}, {x.BAIRRO}", axis=1)
+    ST["endereco"] = ST.apply(lambda x: f"{x.logradouro} {x.NUMERO}, {x.BAIRRO}", axis=1)
     return ST
 
 
@@ -139,7 +139,7 @@ def get_incidencia(doenca, ano):
 
 
 def retrieve_data(line):
-    return line["lat"], line["lon"], line["label"], line["tipo_unidade"], line["endereco"], line["cnes"], line["MUNICIPIO"]
+    return line["lat"], line["lon"], line["label"], line["tipo_unidade"], line["endereco"], line["cnes"], line["municipio"]
 
 st.sidebar.write("# Abas")
 MAIN_SWITCH = st.sidebar.radio("Escolha o tipo de visualização", ["Mapa", "Série", "Cidade"])
@@ -323,7 +323,7 @@ elif MAIN_SWITCH == "Cidade":
     ESTABELECIMENTOS = get_estabelecimentos()
 
 
-    municipios_list = ESTABELECIMENTOS.MUNICIPIO.unique()
+    municipios_list = ESTABELECIMENTOS.municipio.unique()
     municipios_list.sort()
     municipio_selecionado = st.sidebar.selectbox(
         "Escolha a cidade", municipios_list)
@@ -344,7 +344,7 @@ elif MAIN_SWITCH == "Cidade":
         };
         """
         m = folium.Map([-27.2958165,-50.5933218], zoom_start=7.4,tiles="OpenStreetMap") 
-        subconjunto = ESTABELECIMENTOS.query(f"MUNICIPIO == '{municipio_selecionado}'")
+        subconjunto = ESTABELECIMENTOS.query(f"municipio == '{municipio_selecionado}'")
         dados = subconjunto.apply(retrieve_data, axis=1)
         FastMarkerCluster(dados, callback=callback,
                         name=municipio_selecionado).add_to(m)
@@ -412,8 +412,8 @@ Para se obter o índice de atendimento para cada mil habitantes para a doença s
     folium_static(m,  width=800, height=500)
 
 
-    subconjunto = ESTABELECIMENTOS.query(f"MUNICIPIO == '{municipio_selecionado}'").copy()
-    subconjunto.rename({'MUNICIPIO': municipio_selecionado}, axis=1, inplace=True)
+    subconjunto = ESTABELECIMENTOS.query(f"municipio == '{municipio_selecionado}'").copy()
+    subconjunto.rename({'municipio': municipio_selecionado}, axis=1, inplace=True)
     """> Alguns pontos podem aparecer fora da cidade escolhida por erros de georeferenciamento, entretando a quantidade de estabelecimentos abaixo está contabilizada corretamente. """
     st.write(subconjunto.groupby("tipo_unidade").count()[municipio_selecionado])
     with st.expander("Ajuda"): 
