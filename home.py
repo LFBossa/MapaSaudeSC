@@ -272,7 +272,7 @@ elif MAIN_SWITCH == "Mapa":
             objeto = x["properties"] 
             idx = objeto["id"]
             indice = filtrados_doenca.query(f"IBGE == {idx}")[INDICE_NAME].values[0]
-            objeto.update({INDICE_NAME: "{:0.3f}".format(indice).replace(".",",")})
+            objeto.update({INDICE_NAME: "{:0.1f}".format(indice).replace(".",",")})
             #objeto = GEOJSON["features"][i]["properties"]
             #objeto["incidência"] =  indice
         except KeyError:
