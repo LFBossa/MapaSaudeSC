@@ -199,7 +199,7 @@ if MAIN_SWITCH == "Série":
             '@referencia': 'datetime',  # use 'datetime' formatter for '@date' field
         },)
 
-    p = figure(title=f"Índice de {doença} para cada mil habitantes em {cidade_label}",
+    p = figure(title=f"Número de atendimentos de {doença} para cada mil habitantes em {cidade_label}",
             x_axis_type='datetime')
     p.line(x="referencia", y=cidade_label, source=source,
         line_color="red", legend_label=cidade_label, line_width=2)
@@ -210,7 +210,7 @@ if MAIN_SWITCH == "Série":
     p.add_tools(TOOLTIPS)
     p.legend.location = 'top_left'
 
-    f"""# Índice de atendimentos
+    f"""# Atendimentos
 Comparando o número de atendimentos de {doença} em {cidade_label} com dados regionais e estaduais.
     """
     st.bokeh_chart(p, use_container_width=True)
@@ -312,7 +312,7 @@ Mapa comparativo do total de atendimentos de  **{doenca_selecionada}** no ano de
     folium_static(m,  width=800, height=500)
     with st.expander("Ajuda"): 
         """- Ao clicar sobre um município, aparece um balão com seu nome e o número de atendimentos para cada mil habitantes, registrados no ano selecionado.
-- A escala acima varia entre o maior e o menor índices registrados entre as cidades. O valor máximo da escala não representa o valor do índice para o estado.
+- A escala acima varia entre o maior e o menor número registrados entre as cidades. O valor máximo da escala não representa o valor para o estado.
 - Navegando  no mapa:
     - Clique, segura e arrasta: move o mapa
     - Controle de zoom: rodinha do mouse ou botões `+` e `-`  no canto superior esquerdo."""
@@ -418,7 +418,7 @@ Para se obter o índice de atendimento para cada mil habitantes para a doença s
     st.write(subconjunto.groupby("tipo_unidade").count()[municipio_selecionado])
     with st.expander("Ajuda"): 
         """- Ao clicar sobre um município, aparece um balão com seu nome e o número de atendimentos para cada mil habitantes, registrados no ano selecionado.
-- A escala acima varia entre o maior e o menor índices registrados entre as cidades. O valor máximo da escala não representa o valor do índice para o estado.
+- A escala acima varia entre o maior e o menor número registrados entre as cidades. O valor máximo da escala não representa o valor para o estado.
 - Navegando  no mapa:
     - Clique, segura e arrasta: move o mapa
     - Controle de zoom: rodinha do mouse ou botões `+` e `-`  no canto superior esquerdo."""
